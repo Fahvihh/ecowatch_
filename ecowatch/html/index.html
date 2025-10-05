@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECOWATCH</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Topo com fundo de estrelas -->
+  <header>
+    <div class="top-header">
+      <h1>EcoWatch</h1>
+    </div>
+    <nav class="main-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobrenos.html">Sobre Nós</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <div class="main-content">
+      <!-- Coluna esquerda -->
+      <div class="left-column">
+        <div class="text-card">
+          <h2>Descubra a Floração</h2>
+          <p>Este protótipo foi idealizado com base no desafio da NASA 2025 — <strong>BloomWatch: Aplicativo de Observação Global da Fenologia da Floração</strong>. Ele permite acompanhar eventos de floração em regiões estratégicas do Brasil de forma interativa.</p>
+          <p>Clique nos pontos vermelhos no globo para explorar cada região selecionada e analisar padrões de floração.</p>
+        </div>
+      </div>
+      <!-- Coluna direita -->
+      <div class="right-column">
+        <div id="globeViz"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>2025 NASA Space Apps Challenge</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/three@0.150.1/build/three.min.js"></script>
+  <script src="https://unpkg.com/globe.gl@2.30.0/dist/globe.gl.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

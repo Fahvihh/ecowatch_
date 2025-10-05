@@ -1,0 +1,352 @@
+/* Reset e base */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: url(assets/images/ceuestrelado.png);
+  background-size: cover;
+  color: #fff;
+}
+
+/* Topo com fundo PB de árvore/flor */
+header {
+  width: 100%;
+}
+
+.top-header {
+  z-index: 20;
+  text-align: center;
+  padding: 10px 10px; /* reduzido de 40px */
+  font-size: 2.5em;  /* reduzido de 3em */
+  font-weight: bold;
+  color: #0af;
+  background: url(assets/images/bloom.png);
+  background-size: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  border-bottom: 3px solid #0af;
+}
+
+/* Menu */
+.main-menu {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 50, 80, 0.95);
+  text-align: center;
+  padding: 12px 0; /* ligeiramente menor */
+  z-index: 20;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.main-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 25px; /* reduzido */
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1em; /* ligeiramente menor */
+  transition: color 0.3s;
+}
+
+.main-menu a:hover {
+  color: #4ff;
+}
+
+/* Conteúdo principal */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 20px; /* reduzido */
+  min-height: 70vh;
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  width: 100%;
+  gap: 50px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+/* Coluna esquerda */
+.left-column {
+  flex: 1;
+  min-width: 350px; /* aumentou para o texto ser mais largo */
+}
+
+/* Texto em caixa semi-transparente */
+.text-card {
+  position: relative;
+  z-index: 10;
+  background: rgba(0,0,0,0.75);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 35px rgba(0,255,255,0.4);
+}
+
+.text-card h2 {
+  font-size: 2.5em; /* maior */
+  margin-bottom: 25px;
+  color: #4ff;
+}
+
+.text-card p {
+  font-size: 1.2em; /* maior */
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+/* Coluna direita */
+.right-column {
+  flex: 1.5;
+  min-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 750px;
+  overflow: visible;
+}
+
+/* Globo */
+#globeViz {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: transparent;
+}
+
+/* Tooltip para pontos do globo */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0,0,0,0.8);
+  color: #4ff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 300px;
+  font-size: 1.1em;
+  line-height: 1.5;
+  box-shadow: 0 0 25px rgba(0,255,255,0.5);
+  display: none;
+  z-index: 30;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: rgba(0,50,80,0.95);
+  font-size: 1.1em;
+  color: #0af;
+  position: relative;
+  z-index: 5;
+  border-top: 2px solid #4ff;
+}
+
+/* Responsivo */
+@media screen and (max-width: 1000px) {
+  .main-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .right-column {
+    height: 500px;
+  }
+
+  #globeViz {
+    height:450px;
+  }
+}
+
+/* Páginas de região - bloco branco */
+.region-main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: transparent;
+  padding: 0; /* sem espaços no topo */
+}
+
+.region-card {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1f2937;
+  padding: 50px 50px; /* laterais um pouco maiores */
+  border-radius: 0px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+   /* força o bloco a ocupar o máximo da altura */
+}
+
+.region-card h2 {
+  font-size: 2.5em;
+  color: #0af;
+  margin-bottom: 20px;
+  margin-top: 0;
+  text-align: center;
+}
+
+/* TITULO PRINCIPAL COM FUNDO */
+.tituloprincipal {
+  font-size: 3em;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(assets/images/ceuestrelado.png);
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 1100px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+
+.region-card h3 {
+  font-size: 1.5em;
+  color: #0a72af;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.region-card p {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Garante que o bloco branco fique colado no rodapé */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.region-main {
+  flex: 1; /* faz o main crescer e colar no footer */
+}
+
+/* Gráficos verticais */
+.charts-container.vertical {
+  flex-direction: column;
+  gap: 25px;
+}
+
+
+.chart-block {
+  flex: 1 1 400px;
+  text-align: center;
+  background: rgba(240, 248, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.chart-block h3 {
+  color: #0a72af;
+  margin-bottom: 15px;
+}
+
+.chart-img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* NDVI lateral */
+.ndvi-wrapper {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.ndvi-text {
+  flex: 1 1 250px;
+  background: #e0f7fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  color: #006064;
+  font-size: 1em;
+}
+
+.ndvi-values {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.value-box {
+  background: #00acc1;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.value-box.urbano {
+  background: #ff7043;
+}
+
+/* Imagens da reserva lado a lado */
+.reserva-images {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 25px 0;
+}
+
+.reserva-images img {
+  flex: 1 1 48%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  max-width: 40%;
+}
+
+/* Impactos e Conclusão lado a lado */
+.impact-conclusion {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.impact, .conclusion {
+  flex: 1 1 48%;
+  background: #e0f7fa;
+  color: #006064;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Responsivo */
+@media screen and (max-width: 900px) {
+  .ndvi-wrapper, .impact-conclusion, .reserva-images {
+    flex-direction: column;
+  }
+
+  .value-box {
+    font-size: 1.1em;
+  }
+}
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manaus - EcoWatch</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header>
+    <div class="top-header">
+      <h1>EcoWatch</h1>
+    </div>
+    <nav class="main-menu">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../sobre.html">Sobre Nós</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<h2 class="tituloprincipal">
+  🌿 Fenologia de Manaus: Ritmos da Floresta Tropical
+</h2>
+
+<main class="region-main">
+  <div class="region-card">
+
+    <!-- Texto introdutório -->
+
+    <!-- Floração -->
+    <h3>🌸 Floração e Frutificação</h3>
+    <p>A fenologia de Manaus, situada no coração da Amazônia, revela um ciclo natural impressionante, marcado por ritmos biológicos que se entrelaçam com o clima tropical da região. Vamos explorar como a flora local se comporta ao longo do ano, destacando suas fases de floração e os impactos das estações climáticas. <br>
+    Manaus, com seu clima equatorial úmido, apresenta uma vegetação exuberante e dinâmica. A fenologia local é caracterizada por ciclos anuais de floração, frutificação e queda de folhas, influenciados principalmente pela variação na precipitação e temperatura. <br>
+    A floração na Amazônia Central é geralmente anual, com algumas espécies exibindo floração dupla em anos específicos. Por exemplo, a Paullinia cupana (guaraná) apresentou dois ciclos de floração em 2004, enquanto em 2005 ocorreu apenas um ciclo.</p>
+    <p>Para analisar melhor, foi realizada uma comparação entre o NDVI da área urbana de Manaus, o centro, e da área rural, a Reserva Florestal Adolpho Ducke, que divide a cidade em dois mundos: </p>
+
+    <!-- NDVI lateral -->
+    <div class="ndvi-wrapper">
+      <div class="ndvi-text">
+        <h3>🌍 O que é o NDVI?</h3>
+        <ul>
+          <li>Valores próximos de 1,0 indicam vegetação densa e saudável.</li>
+          <li>Valores próximos de 0,0 indicam áreas sem vegetação (solo exposto, construções).</li>
+          <li>Valores negativos podem indicar água, nuvens ou superfícies artificiais.</li>
+        </ul>
+      </div>
+
+      <!-- Rural vs Urbano em destaque -->
+      <div class="ndvi-values">
+        <h3>NDVI - Rural (Reserva Adolpho Ducke) vs Urbano (Centro de Manaus)</h3>
+        <div class="value-box rural">
+          <span>Área Rural</span>
+          <strong>0.336</strong>
+        </div>
+        <div class="value-box urbano">
+          <span>Área Urbana</span>
+          <strong>0.163</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gráficos sempre um abaixo do outro -->
+    <div class="charts-container vertical">
+      <div class="chart-block">
+        <h3>NDVI - Área Rural</h3>
+        <img src="../assets/images/manaus_arearural.png" alt="Gráfico NDVI Manaus Rural" class="chart-img">
+      </div>
+
+      <div class="chart-block">
+        <h3>NDVI - Área Urbana</h3>
+        <img src="../assets/images/manaus_areaurbana.png" alt="Gráfico NDVI Manaus Urbano" class="chart-img">
+      </div>
+    </div>
+
+    <p>Analisando esses dados podemos constatar a diferença entre ambas as regiões. A área urbana devido a concentração da população ao decorrer dos anos fez com que o índice de NVDI médio anual fosse de apenas 0.163, enquanto na Reserva Florestal já temos um valor mais elevado de 0.336. <br>
+      Esses valores e o gráfico foram obtidos na ferramenta <a href="https://code.earthengine.google.com">Earth Engine Code Editor</a></p>
+
+    <!-- Imagens da reserva lado a lado -->
+     <h3>📍 A Reserva Florestal Adolpho Ducke</h3>
+    <div class="reserva-images">
+      <img src="../assets/images/manaus_reservaadolpho.png" alt="">
+      <img src="../assets/images/manaus_reservaadolpho2.png" alt="">
+    </div>
+    <p>
+        Localizada na borda leste de Manaus, a Reserva Florestal Adolpho Ducke é uma das áreas mais importantes de conservação da Amazônia urbana. Criada para preservar a biodiversidade da região, ela funciona como um “pulmão verde” dentro de uma cidade que cresce rapidamente.</p> 
+        <p> Além de sua relevância para a pesquisa científica, a reserva é essencial para a manutenção do equilíbrio climático e para a proteção de inúmeras espécies de fauna e flora.
+      </p>
+
+    <!-- Impactos e Conclusão lado a lado -->
+    <div class="impact-conclusion">
+      <div class="impact">
+        <h3>🌐 Impactos da Urbanização na Vegetação</h3>
+        <ul>
+          <li>Redução da biodiversidade;</li>
+          <li>Alteração do microclima local (ilhas de calor);</li>
+          <li>Perda de serviços ecossistêmicos, como qualidade do ar e regulação da umidade.</li>
+        </ul>
+      </div>
+      <div class="conclusion">
+        <h3>🔎 Conclusão</h3>
+        <p>Essa análise reforça a importância da preservação de áreas verdes dentro e ao redor de centros urbanos. Mesmo em Manaus, a pressão da urbanização é visível e mensurável.</p>
+        <p>A fenologia de Manaus é um reflexo da complexidade e adaptabilidade da floresta tropical. Compreender esses ciclos é essencial para a conservação e manejo sustentável da biodiversidade local</p>
+        <p>Compreender os ciclos fenológicos é essencial para conservação e manejo sustentável da biodiversidade local.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+  <footer>
+    <p>2025 NASA Space Apps Challenge</p>
+  </footer>
+</body>
+</html>
