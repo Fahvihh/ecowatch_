@@ -36,8 +36,10 @@ export async function GET(request: Request) {
   }
 
   try {
+    // Parâmetros válidos (removido m_precip_1h:mm)
     const parameters =
-      "t_2m:C,relative_humidity_2m:p,wind_speed_10m:ms,global_rad:W,m_precip_1h:mm";
+      "t_2m:C,relative_humidity_2m:p,wind_speed_10m:ms,global_rad:W";
+
     const date = new Date().toISOString().split("T")[0];
     const url = `https://api.meteomatics.com/${date}T00:00:00Z/${parameters}/${lat},${lon}/json`;
 
@@ -61,6 +63,8 @@ export async function GET(request: Request) {
     );
   }
 }
+
+
 
 
 
