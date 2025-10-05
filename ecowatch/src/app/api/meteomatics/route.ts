@@ -1,6 +1,19 @@
-// src/app/api/meteomatics/route.ts
-
 import { NextResponse } from "next/server";
+
+const ALLOWED_ORIGIN = "https://ecowatchnasa.vercel.app";
+
+function applyCorsHeaders(response: Response | NextResponse) {
+  response.headers.set("Access-Control-Allow-Origin", ALLOWED_ORIGIN);
+  response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  response.headers.set("Access-Control-Allow-Credentials", "true");
+  return response;
+}
+
+export async function OPTIONS() {
+  const response = new Response(null, { status: 204 });
+  return applyCorsHeaders(response);
+}
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -8,7 +21,7 @@ export async function GET(request: Request) {
   const lon = searchParams.get("lon");
 
   if (!lat || !lon) {
-    return createCorsResponse(
+    return applyCorsHeaders(
       NextResponse.json({ error: "Latitude e longitude são obrigatórias." }, { status: 400 })
     );
   }
@@ -17,7 +30,7 @@ export async function GET(request: Request) {
   const password = process.env.METEOMATICS_PASS;
 
   if (!username || !password) {
-    return createCorsResponse(
+    return applyCorsHeaders(
       NextResponse.json({ error: "Credenciais do Meteomatics não configuradas." }, { status: 500 })
     );
   }
@@ -40,26 +53,14 @@ export async function GET(request: Request) {
     }
 
     const data = await response.json();
-    return createCorsResponse(NextResponse.json(data));
+    return applyCorsHeaders(NextResponse.json(data));
   } catch (error: any) {
     console.error("Erro ao buscar dados da Meteomatics:", error);
-    return createCorsResponse(
+    return applyCorsHeaders(
       NextResponse.json({ error: "Falha ao buscar dados da Meteomatics." }, { status: 500 })
     );
   }
 }
 
-// Handler para requisição OPTIONS (pré-flight)
-export async function OPTIONS() {
-  return createCorsResponse(new Response(null, { status: 204 }));
-}
-
-// Função utilitária para aplicar os headers CORS
-function createCorsResponse(response: Response | NextResponse) {
-  response.headers.set("Access-Control-Allow-Origin", "https://ecowatch-iota.vercel.app");
-  response.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  response.headers.set("Access-Control-Allow-Headers", "Content-Type");
-  return response;
-}
 
 
