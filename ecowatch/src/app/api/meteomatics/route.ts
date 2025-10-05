@@ -10,9 +10,17 @@ function applyCorsHeaders(response: Response | NextResponse) {
   return response;
 }
 
-export async function OPTIONS() {
-  const response = new Response(null, { status: 204 });
-  return applyCorsHeaders(response);
+export async function OPTIONS(request: Request) {
+  const response = new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Access-Control-Allow-Credentials": "true",
+    },
+  });
+  return response;
 }
 
 export async function GET(request: Request) {
@@ -36,25 +44,25 @@ export async function GET(request: Request) {
   }
 
   try {
-    const dateStart = '2025-10-04T00:00:00Z';
-    const dateEnd = '2025-10-07T00:00:00Z';
-    const interval = 'PT1H';
+    const dateStart = "2025-10-04T00:00:00Z";
+    const dateEnd = "2025-10-07T00:00:00Z";
+    const interval = "PT1H";
 
     const parameters = [
-      't_2m:C',                    // Temperatura do ar a 2m
-      'absolute_humidity_2m:gm3', // Umidade absoluta a 2m
-      'wind_speed_2m:ms',         // Velocidade do vento a 2m
-      'precip_1h:mm',             // Precipitação por hora
-      'global_rad:W',             // Radiação global
-      'drought_index:idx',        // Índice de seca
-    ].join(',');
+      "t_2m:C",                    // Temperatura do ar a 2m
+      "absolute_humidity_2m:gm3", // Umidade absoluta a 2m
+      "wind_speed_2m:ms",         // Velocidade do vento a 2m
+      "precip_1h:mm",             // Precipitação por hora
+      "global_rad:W",             // Radiação global
+      "drought_index:idx",        // Índice de seca
+    ].join(",");
 
     const url = `https://api.meteomatics.com/${dateStart}--${dateEnd}:${interval}/${parameters}/${lat},${lon}/json`;
 
     const response = await fetch(url, {
       headers: {
-        Authorization:
-          "Basic " + Buffer.from(`${username}:${password}`).toString("base64"),
+        Authorization: "Basic " + Buffer.from(`${username}:${password}`).toString("base64"),
+        Accept: "application/json",
       },
     });
 
@@ -71,3 +79,5 @@ export async function GET(request: Request) {
     );
   }
 }
+
+
