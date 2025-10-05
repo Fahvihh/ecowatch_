@@ -36,12 +36,20 @@ export async function GET(request: Request) {
   }
 
   try {
-    // Parâmetros válidos (removido m_precip_1h:mm)
-    const parameters =
-      "t_2m:C,relative_humidity_2m:p,wind_speed_10m:ms,global_rad:W";
+    const dateStart = '2025-10-04T00:00:00Z';
+    const dateEnd = '2025-10-07T00:00:00Z';
+    const interval = 'PT1H';
 
-    const date = new Date().toISOString().split("T")[0];
-    const url = `https://api.meteomatics.com/${date}T00:00:00Z/${parameters}/${lat},${lon}/json`;
+    const parameters = [
+      't_2m:C',                    // Temperatura do ar a 2m
+      'absolute_humidity_2m:gm3', // Umidade absoluta a 2m
+      'wind_speed_2m:ms',         // Velocidade do vento a 2m
+      'precip_1h:mm',             // Precipitação por hora
+      'global_rad:W',             // Radiação global
+      'drought_index:idx',        // Índice de seca
+    ].join(',');
+
+    const url = `https://api.meteomatics.com/${dateStart}--${dateEnd}:${interval}/${parameters}/${lat},${lon}/json`;
 
     const response = await fetch(url, {
       headers: {
@@ -63,8 +71,3 @@ export async function GET(request: Request) {
     );
   }
 }
-
-
-
-
-
